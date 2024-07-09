@@ -2530,7 +2530,7 @@ GameObject:
   - component: {fileID: 1657165190}
   - component: {fileID: 1657165189}
   m_Layer: 0
-  m_Name: GamesPlusJames - Rhythm Tutorial
+  m_Name: AudioSource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
