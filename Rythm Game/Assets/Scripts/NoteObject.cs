@@ -22,17 +22,32 @@ public class NoteObject : MonoBehaviour
         {
             if (canBePressed)
             {
-                GameManager.instance.NoteHit();
+                //GameManager.instance.NoteHit();
+
                 obtained = true;
                 gameObject.SetActive(false);
-                //GameManager.instance.NoteHit();
+                
+                if(Mathf.Abs(transform.position.y) > 0.25)
+                {
+                    Debug.Log("Hit");
+                    GameManager.instance.NormalHit();
+                } else if(Mathf.Abs(transform.position.y) > 0.05f)
+                {
+                    Debug.Log("Good");
+                    GameManager.instance.GoodHit();
+                }
+                else
+                {
+                    Debug.Log("Perfect");
+                    GameManager.instance.PerfectHit();
+                }
             }
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Destroyer"))
+        if (other.CompareTag("Destroyer")) // Se fija si las notas lo tocaron, y se destruyen
         {
             GameManager.instance.NoteMissed();
             Destroy(other.gameObject);

@@ -5,13 +5,19 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public AudioSource music;
+    public AudioSource theMusic;
+
     public bool startPlaying;
+
     public BeatScroller beatScroller;
+
     public static GameManager instance;
 
     public int currentScore;
     public int scorePerNote = 100;
+    public int scorePerGoodNote = 125;
+    public int scorePerPerfectNote = 150;
+
 
     public int currentMultiplier;
     public int multiplierTracker;
@@ -19,6 +25,7 @@ public class GameManager : MonoBehaviour
 
     public Text scoreText;
     public Text multiText;
+
 
 
     // Start is called before the first frame update
@@ -40,7 +47,7 @@ public class GameManager : MonoBehaviour
                 startPlaying = true;
                 beatScroller.hasStarted = true;
 
-                music.Play();
+                theMusic.Play();
             }
         }
     }
@@ -61,8 +68,26 @@ public class GameManager : MonoBehaviour
 
         multiText.text = "Multiplier: x" + currentMultiplier;
 
-        currentScore += scorePerNote * currentMultiplier;
+        //currentScore += scorePerNote * currentMultiplier;
         scoreText.text = "Score: " + currentScore;
+    }
+
+    public void NormalHit()
+    {
+        currentScore += scorePerNote * currentMultiplier;
+        NoteHit();
+    }
+
+    public void GoodHit()
+    {
+        currentScore += scorePerGoodNote * currentMultiplier;
+        NoteHit();
+    }
+
+    public void PerfectHit()
+    {
+        currentScore += scorePerPerfectNote * currentMultiplier;
+        NoteHit();
     }
 
     public void NoteMissed()
