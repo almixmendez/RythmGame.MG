@@ -164,3 +164,7 @@ MonoBehaviour:
   canBePressed: 0
   keyToPress: 115
   obtained: 0
+  hitEffect: {fileID: 8022663772420570967, guid: 6f95b96314a1f984680affd06296b056, type: 3}
+  goodEffect: {fileID: 3458029547447073984, guid: 03cf973dbc61e9c4291de51c922c34ff, type: 3}
+  perfectEffect: {fileID: 497166825153434405, guid: 981ee2946edd9174489ae322394ea853, type: 3}
+  missEffect: {fileID: 6538480124870412503, guid: 354e106775c3f6541b310468032cafdb, type: 3}
