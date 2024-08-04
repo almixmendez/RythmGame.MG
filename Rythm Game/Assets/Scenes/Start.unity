@@ -4353,7 +4353,7 @@ VideoPlayer:
   m_GameObject: {fileID: 798037643}
   m_Enabled: 1
   m_VideoClip: {fileID: 32900000, guid: 01a4cb20b8058024d9ad1b7f1b4af0f3, type: 3}
-  m_TargetCameraAlpha: 0.103
+  m_TargetCameraAlpha: 0.691
   m_TargetCamera3DLayout: 2
   m_TargetCamera: {fileID: 519420031}
   m_TargetTexture: {fileID: 0}
