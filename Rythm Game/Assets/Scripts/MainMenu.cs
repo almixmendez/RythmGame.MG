@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField] private GameObject HTPPanel;
+
     public void PlayGame()
     {
         SceneManager.LoadScene("Start");
@@ -14,5 +16,15 @@ public class MainMenu : MonoBehaviour
     {
         Debug.Log("Quit");
         Application.Quit();
+    }
+
+    public void HowToPlay()
+    {
+        HTPPanel.SetActive(true);
+    }
+
+    public void GoBackButton()
+    {
+        HTPPanel.SetActive(false);
     }
 }
