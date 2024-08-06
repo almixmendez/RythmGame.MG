@@ -1,28 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.Rendering;
 
+// Baja las notas al tempo de la música (BPM).
 public class BeatScroller : MonoBehaviour
 {
-    public float beatTempo;
+    [SerializeField] private float beatTempo;
+    [SerializeField] private GameObject pressAnyKeyPanel;
     public bool hasStarted;
 
-    // Start is called before the first frame update
     void Start()
     {
+        pressAnyKeyPanel.SetActive(true);
         beatTempo = beatTempo / 60f;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!hasStarted)
         {
-            //if (Input.anyKeyDown)
-            //{
-            //    hasStarted = true;
-            //}
+            if (Input.anyKeyDown)
+            {
+                pressAnyKeyPanel.SetActive(false);
+                hasStarted = true;
+            }
         }
         else
         {

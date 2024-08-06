@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// Interacciones del menú principal.
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] private GameObject HTPPanel;

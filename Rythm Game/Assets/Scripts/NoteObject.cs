@@ -3,30 +3,21 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+// Comportamiento de las notas.
 public class NoteObject : MonoBehaviour
 {
-    public bool canBePressed;
-    public KeyCode keyToPress;
-    public bool obtained = false;
+    [SerializeField] private bool canBePressed;
+    [SerializeField] private KeyCode keyToPress;
+    [SerializeField] private bool obtained = false; // Checkea si se presionó la tecla correcta.
 
-    public GameObject hitEffect, goodEffect, perfectEffect, missEffect;
+    [SerializeField] private GameObject hitEffect, goodEffect, perfectEffect, missEffect;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(keyToPress))
         {
             if (canBePressed)
             {
-                //GameManager.instance.NoteHit();
-
                 obtained = true;
                 gameObject.SetActive(false);
                 
@@ -66,7 +57,7 @@ public class NoteObject : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.tag == "Activator")
+        if (other.tag == "Activator") // La nota ya no puede presionarse.
         {
            canBePressed = false;
            if (!obtained)

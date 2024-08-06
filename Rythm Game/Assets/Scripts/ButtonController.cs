@@ -2,21 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Cambia la imagen del botón cuando se presiona la tetcla asignada.
 public class ButtonController : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
-    public Sprite defaultImage;
-    public Sprite pressedImage;
+    [SerializeField] private Sprite defaultImage;
+    [SerializeField] private Sprite pressedImage;
 
-    public KeyCode keyToPress;
+    [SerializeField] private KeyCode keyToPress;
 
-    // Start is called before the first frame update
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(keyToPress))

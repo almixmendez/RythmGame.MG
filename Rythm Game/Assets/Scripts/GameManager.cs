@@ -5,9 +5,10 @@ using UnityEngine.Rendering;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+// Lógica principal del videojuego; música, puntuación, multiplicadores, aciertos/fallos de notas y resultados.
 public class GameManager : MonoBehaviour
 {
-    public AudioSource theMusic;
+    [SerializeField] private AudioSource theMusic;
 
     public bool startPlaying;
 
@@ -15,27 +16,27 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance;
 
-    public int currentScore;
-    public int scorePerNote = 100;
-    public int scorePerGoodNote = 125;
-    public int scorePerPerfectNote = 150;
+    [SerializeField] private int currentScore;
+    [SerializeField] private int scorePerNote = 100;
+    [SerializeField] private int scorePerGoodNote = 125;
+    [SerializeField] private int scorePerPerfectNote = 150;
 
 
-    public int currentMultiplier;
-    public int multiplierTracker;
-    public int[] multiplierThresholds;
+    [SerializeField] private int currentMultiplier;
+    [SerializeField] private int multiplierTracker;
+    [SerializeField] private int[] multiplierThresholds;
 
-    public Text scoreText;
-    public Text multiText;
+    [SerializeField] private Text scoreText;
+    [SerializeField] private Text multiText;
 
-    public float totalNotes;
-    public float normalHits;
-    public float goodHits;
-    public float perfectHits;
-    public float missedHits;
+    [SerializeField] private float totalNotes;
+    [SerializeField] private float normalHits;
+    [SerializeField] private float goodHits;
+    [SerializeField] private float perfectHits;
+    [SerializeField] private float missedHits;
 
-    public GameObject resultsScreen;
-    public Text percentHitText, normalsText, goodsText, perfectsText, missesText, rankText, finalScoreText;
+    [SerializeField] private GameObject resultsScreen;
+    [SerializeField] private Text percentHitText, normalsText, goodsText, perfectsText, missesText, rankText, finalScoreText;
 
     void Start()
     {
@@ -106,6 +107,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Aciertos y fallos en las notas.
     public void NoteHit()
     {
         Debug.Log("Hit On Time");
@@ -123,7 +125,6 @@ public class GameManager : MonoBehaviour
 
         multiText.text = "Multiplier: x" + currentMultiplier;
 
-        //currentScore += scorePerNote * currentMultiplier;
         scoreText.text = "Score: " + currentScore;
     }
 
