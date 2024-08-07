@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Cambia la imagen del botón cuando se presiona la tetcla asignada.
+// Cambia la imagen del botón cuando se presiona la tecla asignada.
 public class ButtonController : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
